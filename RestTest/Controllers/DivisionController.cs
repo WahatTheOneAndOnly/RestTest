@@ -24,9 +24,15 @@ namespace RestTest.Controllers
         /// <param name="b">The second integer for the division.</param>
         /// <returns>The division of the two integers without rest.</returns>
         [HttpGet(Name = "Div")]
-        public int Get(int a, int b)
+        public IActionResult Get(int a, int b)
         {
-            return a / b;
+            // Example validation check: both values must be positive
+            if (b == 0)
+            {
+                return BadRequest("Second value can not be 0.");
+            }
+            int result = a / b;
+            return Ok(result);
         }
     }
 }
