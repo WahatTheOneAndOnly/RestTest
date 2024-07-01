@@ -1,0 +1,6 @@
+@RestTest_HostAddress = http://localhost:5043
+
+GET {{RestTest_HostAddress}}/Addition?a=3&b=2
+Accept: application/json
+
+###
